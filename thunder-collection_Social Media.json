@@ -1,0 +1,237 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Social Media",
+    "collectionId": "c6802263-f792-479d-917d-034474faec05",
+    "dateExported": "2024-06-19T09:35:09.242Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "f42d8cc9-697e-43c4-b22c-09a03e33f2ee",
+            "name": "User Auth",
+            "containerId": "",
+            "created": "2024-06-18T15:07:36.072Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "aed0813f-3650-4e26-bc50-ed348a57dfd5",
+            "name": "Users Action",
+            "containerId": "",
+            "created": "2024-06-18T15:12:40.041Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "98b459a8-bfc6-4f36-afec-b12285d6b505",
+            "name": "Posts",
+            "containerId": "",
+            "created": "2024-06-19T07:12:42.077Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "2788e525-84ad-4f0a-b3eb-b28f3499ae6c",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "f42d8cc9-697e-43c4-b22c-09a03e33f2ee",
+            "name": "Signin",
+            "url": "http://localhost:4000/api/v1/auth/signin",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-18T15:08:02.817Z",
+            "modified": "2024-06-19T09:22:17.892Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"akaa@gmail.com\",\n  \"password\": \"akash\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1f4ea052-8aba-4186-bcce-35d324d52aca",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "f42d8cc9-697e-43c4-b22c-09a03e33f2ee",
+            "name": "Register",
+            "url": "http://localhost:4000/api/v1/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-06-18T15:10:23.439Z",
+            "modified": "2024-06-18T15:11:49.801Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Akash Pawar\",\n  \"username\": \"aks\",\n  \"email\": \"akaaa@gmail.com\",\n  \"password\": \"akash\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "a26b7201-72af-4b7d-a6e3-c995358993c8",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "aed0813f-3650-4e26-bc50-ed348a57dfd5",
+            "name": "Get User",
+            "url": "http://localhost:4000/api/v1/users/667131e36580e522954c38e7",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-06-18T15:12:51.190Z",
+            "modified": "2024-06-18T15:25:45.255Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODcyNDMzMX0.7KsC7ofL1lrYJeMvhimGtdfdjNjiHigVFBHncWZZO94"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ]
+        },
+        {
+            "_id": "e45d9d70-4de7-45ea-a5f0-a771b7054219",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "aed0813f-3650-4e26-bc50-ed348a57dfd5",
+            "name": "Get Friends List",
+            "url": "http://localhost:4000/api/v1/users/667131e36580e522954c38e7/friends",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-06-18T17:36:19.514Z",
+            "modified": "2024-06-18T17:37:10.312Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODcyNDMzMX0.7KsC7ofL1lrYJeMvhimGtdfdjNjiHigVFBHncWZZO94"
+                }
+            ]
+        },
+        {
+            "_id": "3ff0e45a-c258-4755-a288-93b7bf618e77",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "aed0813f-3650-4e26-bc50-ed348a57dfd5",
+            "name": "Add or Remove Friend",
+            "url": "http://localhost:4000/api/v1/users/66712663ce0c2552d86bb420/667131e36580e522954c38e7",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2024-06-18T17:47:35.852Z",
+            "modified": "2024-06-18T18:01:36.002Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODcyNDMzMX0.7KsC7ofL1lrYJeMvhimGtdfdjNjiHigVFBHncWZZO94"
+                }
+            ]
+        },
+        {
+            "_id": "8b7904c1-f8d6-486c-baf8-c90402096f23",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "98b459a8-bfc6-4f36-afec-b12285d6b505",
+            "name": "Add Post",
+            "url": "http://localhost:4000/api/v1/posts/createpost",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-06-19T08:49:15.053Z",
+            "modified": "2024-06-19T09:04:40.838Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODcyNDMzMX0.7KsC7ofL1lrYJeMvhimGtdfdjNjiHigVFBHncWZZO94"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"Experience the power of algo trading with our Bank Nifty Intraday Signals. Start trading smarter, not harder.\",\n  \"picturePath\": \"hhttps://media.licdn.com/dms/image/sync/D4D10AQGs0K1aNlkOCA/image-shrink_800/0/1712476515800/NEW-CP-ADSjpg?e=1719396000&v=beta&t=Oc6A-EM0VQRfudJsgIDYeYLH5PVVm-0UEL5y4F1baco\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "27603d1b-9278-4de4-8a34-09e9e463dfba",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "98b459a8-bfc6-4f36-afec-b12285d6b505",
+            "name": "Get All Feed Posts",
+            "url": "http://localhost:4000/api/v1/posts",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-06-19T09:06:19.109Z",
+            "modified": "2024-06-19T09:06:53.382Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODcyNDMzMX0.7KsC7ofL1lrYJeMvhimGtdfdjNjiHigVFBHncWZZO94"
+                }
+            ]
+        },
+        {
+            "_id": "0149dfee-0683-4649-a00e-c8cc2411c4c7",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "98b459a8-bfc6-4f36-afec-b12285d6b505",
+            "name": "Get All User Posts",
+            "url": "http://localhost:4000/api/v1/posts/667131e36580e522954c38e7/posts",
+            "method": "GET",
+            "sortNum": 85000,
+            "created": "2024-06-19T09:07:50.437Z",
+            "modified": "2024-06-19T09:10:51.912Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODcyNDMzMX0.7KsC7ofL1lrYJeMvhimGtdfdjNjiHigVFBHncWZZO94"
+                }
+            ]
+        },
+        {
+            "_id": "bdbdcc74-b271-4528-b3d1-1845fb56be50",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "98b459a8-bfc6-4f36-afec-b12285d6b505",
+            "name": "Like and unlike Post",
+            "url": "http://localhost:4000/api/v1/posts/66729c554e3fe98371edd0c5/likes",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-06-19T07:12:52.970Z",
+            "modified": "2024-06-19T09:14:02.343Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODcyNDMzMX0.7KsC7ofL1lrYJeMvhimGtdfdjNjiHigVFBHncWZZO94"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ]
+        },
+        {
+            "_id": "4236725a-7139-4948-9583-ba870317b85d",
+            "colId": "c6802263-f792-479d-917d-034474faec05",
+            "containerId": "98b459a8-bfc6-4f36-afec-b12285d6b505",
+            "name": "Add Comments Copy",
+            "url": "http://localhost:4000/api/v1/posts/66729c554e3fe98371edd0c5/comment",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-06-19T09:12:47.897Z",
+            "modified": "2024-06-19T09:23:46.391Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY3MTMxZTM2NTgwZTUyMjk1NGMzOGU3In0sImlhdCI6MTcxODc4ODkzOX0.5AQX0HlaN2WP1KOCle6mJ0P8OfvLfXN1TyDUt_ZerIw"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"comment\": \"Super\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "_e5UbIFoVbcIVnto2yYsEpIEiEv7wrziPkQqfUS2IuB-hiFTrUP4PzHLEEX3fwD_1R8uHlqX1hh29BOCgs2LPA"
+}
