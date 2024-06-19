@@ -1,8 +1,8 @@
-### create .env file and add below code with your jwt secret
+### create .env file and add below code 
 
 ```
 PORT = 4000
-JWT_SECRET = 
+JWT_SECRET = "add_your_jwt_secret"
 MONGO_URL = mongodb://0.0.0.0:27017
 ```
 
