@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-## viste below url
+## viste below url for api documentation
 
 ```
 http://localhost:4000/api-docs/#/default
