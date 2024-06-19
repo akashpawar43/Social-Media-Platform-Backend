@@ -3,7 +3,7 @@
 ```
 PORT = 4000
 JWT_SECRET = "add_your_jwt_secret"
-MONGO_URL = mongodb://0.0.0.0:27017
+MONGO_URL = "add_your_mongo_url"
 ```
 
 ### Install dependencies
