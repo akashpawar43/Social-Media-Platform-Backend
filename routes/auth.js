@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import z from "zod";
 import User from "../model/User.js";
-import mongoose from "mongoose";
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const router = express.Router();
@@ -32,7 +31,8 @@ router.post("/register", async (req, res) => {
         });
     }
     try {
-        const { name, username, email, password, profilePicture } = validatedRegister.data;
+        // const { name, username, email, password, profilePicture } = validatedRegister.data;
+        const { name, username, email, password, profilePicture } = req.body;
         const exist = await User.findOne({ $or: [{ email: email }, { username: username }] });
         if (exist) {
             const errorMessage = exist.email === email ? "Email already exists" : "Username already exists";
@@ -79,7 +79,8 @@ router.post("/signin", async (req, res) => {
         });
     }
     try {
-        const { email, password } = validatedSignin.data;
+        // const { email, password } = validatedSignin.data;
+        const { email, password } = req.body;
         const user = await User.findOne({ email: email });
         if (!user) {
             return res.status(400).json({

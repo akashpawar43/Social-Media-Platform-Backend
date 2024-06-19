@@ -3,12 +3,25 @@ import { verifyToken } from "../middleware/auth.js";
 import User from "../model/User.js";
 import Post from "../model/Post.js";
 import mongoose from "mongoose";
-
+import z from "zod";
 
 const router = express.Router();
 
+const createPostBody = z.object({
+    description: z.string().max(100),
+    picturePath: z.string()
+});
+
 // create post end point using post method /api/v1/posts/createpost
 router.post("/createpost", verifyToken, async (req, res) => {
+    const { success } = createPostBody.safeParse(req.body);
+    if (!success) {
+        return res.status(411).json({
+            message: createPostBody.error.issues.map(issue =>
+                issue.message
+            )
+        });
+    }
     try {
         const userId = req.userId;
         const { description, picturePath } = req.body;
@@ -94,8 +107,20 @@ router.patch("/:id/likes", verifyToken, async (req, res) => {
     }
 });
 
+const commentBody = z.object({
+    comment: z.string().max(30)
+})
+
 // Comment on post using patch method /api/v1/posts/:id/comment
 router.patch("/:id/comment", verifyToken, async (req, res) => {
+    const { success } = commentBody.safeParse(req.body);
+    if (!success) {
+        return res.status(411).json({
+            message: commentBody.error.issues.map(issue =>
+                issue.message
+            )
+        });
+    }
     try {
         const { id } = req.params;
         const { comment } = req.body;

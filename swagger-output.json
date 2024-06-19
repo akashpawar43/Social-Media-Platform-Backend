@@ -24,6 +24,32 @@
     "/api/v1/auth/register": {
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "profilePicture": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -43,6 +69,23 @@
     "/api/v1/auth/signin": {
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -196,6 +239,9 @@
           "409": {
             "description": "Conflict"
           },
+          "411": {
+            "description": "Length Required"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -332,6 +378,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "411": {
+            "description": "Length Required"
           },
           "500": {
             "description": "Internal Server Error"
