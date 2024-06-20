@@ -3,12 +3,12 @@ import { verifyToken } from "../middleware/auth.js";
 import Message from "../model/Message.js";
 import z from "zod";
 
-const router = express.Router();
+const router = express.Router();   
 
 const sendMessageBody = z.object({
     receiverId: z.string(),
     content: z.string().max(500)
-});
+});  
 
 // Send a message using post method /api/v1/messages/send
 router.post("/send", verifyToken, async (req, res) => {
@@ -46,7 +46,7 @@ router.get("/:userId", verifyToken, async (req, res) => {
         const { userId: receiverId } = req.params;
 
         const messages = await Message.find({
-            $or: [
+            $or: [   
                 { senderId, receiverId },
                 { senderId: receiverId, receiverId: senderId }
             ]
