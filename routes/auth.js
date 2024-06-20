@@ -119,6 +119,14 @@ router.post("/signin", async (req, res) => {
     }
 });
 
+// logout user endpoint using post method /api/v1/auth/logout
+router.post("/logout", (req, res) => {
+    // Invalidate the token on the client side by removing it from storage
+    res.status(200).json({
+        success: true,
+        message: "User logged out successfully"
+    });
+});
 
 
 export default router;

@@ -12,14 +12,12 @@ const createPostBody = z.object({
     picturePath: z.string()
 });
 
-// create post end point using post method /api/v1/posts/createpost
+// Create post endpoint using post method /api/v1/posts/createpost
 router.post("/createpost", verifyToken, async (req, res) => {
-    const { success } = createPostBody.safeParse(req.body);
+    const { success, error } = createPostBody.safeParse(req.body);
     if (!success) {
         return res.status(411).json({
-            message: createPostBody.error.issues.map(issue =>
-                issue.message
-            )
+            message: error.issues.map(issue => issue.message)
         });
     }
     try {
@@ -48,7 +46,7 @@ router.post("/createpost", verifyToken, async (req, res) => {
     }
 });
 
-// get all Feed post using get method /api/v1/posts/
+// Get all feed posts using get method /api/v1/posts/
 router.get("/", verifyToken, async (req, res) => {
     try {
         const post = await Post.find();
@@ -60,7 +58,7 @@ router.get("/", verifyToken, async (req, res) => {
     }
 });
 
-// get all User post using get method /api/v1/posts/:userId/posts
+// Get all user posts using get method /api/v1/posts/:userId/posts
 router.get("/:userId/posts", verifyToken, async (req, res) => {
     try {
         const { userId } = req.params;
@@ -73,7 +71,7 @@ router.get("/:userId/posts", verifyToken, async (req, res) => {
     }
 });
 
-// likes on post using patch method /api/v1/posts/:id/likes
+// Like a post using patch method /api/v1/posts/:id/likes
 router.patch("/:id/likes", verifyToken, async (req, res) => {
     try {
         const { id } = req.params;
@@ -109,16 +107,14 @@ router.patch("/:id/likes", verifyToken, async (req, res) => {
 
 const commentBody = z.object({
     comment: z.string().max(30)
-})
+});
 
-// Comment on post using patch method /api/v1/posts/:id/comment
+// Comment on a post using patch method /api/v1/posts/:id/comment
 router.patch("/:id/comment", verifyToken, async (req, res) => {
-    const { success } = commentBody.safeParse(req.body);
+    const { success, error } = commentBody.safeParse(req.body);
     if (!success) {
         return res.status(411).json({
-            message: commentBody.error.issues.map(issue =>
-                issue.message
-            )
+            message: error.issues.map(issue => issue.message)
         });
     }
     try {
@@ -138,7 +134,7 @@ router.patch("/:id/comment", verifyToken, async (req, res) => {
             username: user.username,
             profilePicture: user.profilePicture,
             comment
-        }
+        };
 
         post.Comments.push(newComment);
 
@@ -151,5 +147,6 @@ router.patch("/:id/comment", verifyToken, async (req, res) => {
         });
     }
 });
+
 
 export default router;

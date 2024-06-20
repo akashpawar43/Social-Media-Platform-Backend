@@ -1,6 +1,8 @@
 import express from "express";
 import { verifyToken } from "../middleware/auth.js";
 import User from "../model/User.js";
+import Notification from "../model/Notification.js";
+import z from "zod";
 
 const router = express.Router();
 
@@ -71,9 +73,49 @@ router.patch("/:id/:friendId", verifyToken, async (req, res) => {
             }
         );
         res.status(200).json(formattedFriends);
-        
+
     } catch (error) {
         res.status(404).json({
+            message: error.message
+        });
+    }
+});
+
+const followNotificationBody = z.object({
+    followerId: z.string()
+});
+
+// Send notification of new follower using post method /api/v1/users/:userId/followers
+router.post("/:userId/followers", verifyToken, async (req, res) => {
+    const { success, error } = followNotificationBody.safeParse(req.body);
+    if (!success) {
+        return res.status(411).json({
+            message: error.issues.map(issue => issue.message)
+        });
+    }
+    try {
+        const { userId } = req.params;
+        const { followerId } = req.body;
+
+        const user = await User.findById(userId);
+        const follower = await User.findById(followerId);
+
+        if (!user || !follower) {
+            return res.status(404).json({ message: "User or follower not found" });
+        }
+
+        const notification = new Notification({
+            userId,
+            type: "newFollower",
+            message: `${follower.name} (@${follower.username}) started following you.`,
+            createdAt: new Date()
+        });
+
+        await notification.save();
+
+        res.status(201).json({ message: "Notification sent." });
+    } catch (error) {
+        res.status(409).json({
             message: error.message
         });
     }
